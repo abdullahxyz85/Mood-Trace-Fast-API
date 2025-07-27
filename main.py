@@ -23,7 +23,16 @@ if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY environment variable is not set. Please set it in Replit Secrets.")
 
 try:
+    # Try different initialization methods
     client = Groq(api_key=GROQ_API_KEY)
+except TypeError as e:
+    if "proxies" in str(e):
+        # Try without any additional parameters
+        client = Groq()
+        client.api_key = GROQ_API_KEY
+    else:
+        print(f"Warning: Could not initialize Groq client: {e}")
+        client = None
 except Exception as e:
     print(f"Warning: Could not initialize Groq client: {e}")
     client = None
