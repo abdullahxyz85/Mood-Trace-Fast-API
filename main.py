@@ -20,9 +20,13 @@ except Exception as e:
 # Set up Groq client with API key from .env file
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
-    raise ValueError("GROQ_API_KEY environment variable is not set. Please create a .env file with your API key.")
+    raise ValueError("GROQ_API_KEY environment variable is not set. Please set it in Replit Secrets.")
 
-client = Groq(api_key=GROQ_API_KEY)
+try:
+    client = Groq(api_key=GROQ_API_KEY)
+except Exception as e:
+    print(f"Warning: Could not initialize Groq client: {e}")
+    client = None
 
 # This list will store all submissions while the server is running
 submissions = []
