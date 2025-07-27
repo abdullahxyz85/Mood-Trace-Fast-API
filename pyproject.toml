@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "backend-api"
+version = "0.1.0"
+description = "FastAPI backend with Groq AI integration"
+authors = ["Abdullah Jameel  abdullahxyz85@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0"}
+groq = "^0.4.2"
+pydantic = "^2.5.0"
+python-multipart = "^0.0.6"
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api" 

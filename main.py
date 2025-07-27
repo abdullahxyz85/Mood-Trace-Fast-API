@@ -40,7 +40,10 @@ app.add_middleware(
         "http://localhost:3002",
         "http://127.0.0.1:3000",
         "http://127.0.0.1:3001",
-        "http://127.0.0.1:3002"
+        "http://127.0.0.1:3002",
+        # Add your deployed frontend URL here
+        "https://aihi.netlify.app",  # Your Netlify frontend URL
+        "*"  # Temporarily allow all origins for testing
     ],  # React dev server ports
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
